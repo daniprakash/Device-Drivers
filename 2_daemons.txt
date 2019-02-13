@@ -1,0 +1,54 @@
+List atleast 50 daemons (E.g. syslogd).
+
+A daemon is a long-running background process that answers requests for services
+
+1	init				The Unix program which spawns all other processes. As of 2016, for major Linux distributions, it has been replaced by systemd.[2]
+2	biod				Works in cooperation with the remote nfsd to handle client NFS requests.
+3	crond				Time-based job scheduler, runs jobs in the background.
+4	dhcpd				Dynamically configure TCP/IP information for clients.
+5	fingerd				Provides a network interface for the finger protocol, as used by the finger command.
+6	ftpd				Services FTP requests from a remote system.
+7	httpd				Web server daemon.
+8	inetd				Listens for network connection requests. If a request is accepted, it can launch a background daemon to handle the request, was known as the super server for this reason. Some systems use the replacement command xinetd.
+9	lpd				The line printer daemon that manages printer spooling.
+10	nfsd				Processes NFS operation requests from client systems. Historically each nfsd daemon handled one request at a time, so it was normal to start multiple copies.
+11	ntpd				Network Time Protocol daemon that manages clock synchronization across the network. xntpd implements the version 3 standard of NTP.
+12	portmap/rpcbind			Provides information to allow ONC RPC clients to contact ONC RPC servers
+13	sshd				Listens for secure shell requests from clients.
+14	sendmail			SMTP daemon.
+15	swapper				Copies process regions to swap space in order to reclaim physical pages of memory for the kernel. Also called sched
+16	syslogd				System logger process that collects various system messages.
+17	syncd				Periodically keeps the file systems synchronized with system memory.
+18	systemd				Replacement of init, the Unix program which spawns all other processes.
+19	xfsd				Serve X11 fonts to remote clients.
+20	vhand				Releases pages of memory for use by other processes. Also known as the "page stealing daemon"
+21	ypbind				Find the server for an NIS domain and store the information in a file.
+22	comsat				The comsat daemon is the server that receives reports of incoming mail and notifies users if they have enabled this service with the biff command. Started by the inetd daemon, the comsat daemon is not meant to be used at the command line. The comsat daemon receives messages on a datagram port associated with the biff service specification.
+23	rlogind				Provides the server function for the rlogin command.
+24	rexecd				Provides the server function for the rexec command.
+25	rshd				Provides the server function for remote command execution.
+26	amd				Auto Mount Daemon
+27	anacron				Executed delayed cron tasks at boot time
+28	apmd 				Advanced Power Management Daemon
+29	atd 				Runs jobs queued using the at tool
+30	autofs  			Supports the automounter daemon allowing mount and unmount of devices on demand
+31	cupsd 				CUPS printer daemon
+32	gated				routing daemon that handles multiple routing protocols and replaces routed and egpup
+33	imapd 				An imap server daemon
+34	lpd 				Line Printer Daemon
+35	memcached 			In-memory distributed object caching daemon
+36	mountd 				mount daemon
+37	mysql  				Database server daemon
+38	named 				A DNS server daemon
+39	nfslock 			Used to start and stop nfs file locking services
+40	nmbd 				Network Message Block Daemon
+41	postfix 			A mail transport agent used as a replacement for sendmail
+42	postgresql 			Database server daemon
+43	routed 				Manages routing tables
+44	smbd 				Samba (an SMB Server) Daemon
+45	smtpd				Simple Mail Transfer Protocol Daemon
+46	snmpd 				Simple Network Management Protocol Daemon
+47	squid 				A web page caching proxy server daemon
+48	tcpd 				Service wrapper restricts access to inetd based services through hosts.allow and hosts.deny
+49	telnetd 			Telnet Server daemon
+50	vsftpd 				Very Secure FTP Daemon

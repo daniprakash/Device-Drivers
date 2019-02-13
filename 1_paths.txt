@@ -1,0 +1,125 @@
+
+1-- list atleast 50 paths and explain what it does
+ 
+
+1----- /bin       Essential command binaries
+2----- /boot      Static files of the boot loader
+3----- /dev       Device files
+4----- /etc       Host-specific system configuration
+5       /lib       Essential shared libraries and kernel modules
+6       /media     Mount point for removeable media
+7       /mnt       Mount point for mounting a filesystem temporarily
+8       /opt       Add-on application software packages
+9       /sbin      Essential system binaries
+10       /srv       Data for services provided by this system
+11       /tmp       Temporary files
+12       /usr       Secondary hierarchy
+13       /var       Variable data
+14	/ -- the root directory
+15	/home User home directories (optional)
+16	/root Home directory for the root user (optional)
+
+
+/dev - device files
+17	/dev/ttyS0 (First communications port, COM1)	First serial port (mice, modems).
+18	/dev/psaux (PS/2) 				PS/2 mouse connection (mice, keyboards).
+19	/dev/sda (C:\, SCSI device)			First SCSI device (HDD, Memory Sticks, external mass storage devices such as CD-ROM drives on laptops, etc).
+
+/boot - static files of the boot loader
+20	/boot/vmlinuz, /boot/vmlinuz-kernel-version	Normally the kernel or symbolic link to the kernel.
+e.g., 	vmlinuz-4.4.0-103-generic
+	vmlinuz-4.4.0-103-generic.efi.signed
+	vmlinuz-4.4.0-59-generic
+	vmlinuz-4.4.0-93-generic
+21	/boot/grub					This subdirectory contains the GRUB configuration files including boot-up images and sounds. GRUB is the GNU GRand Unified Bootloader, a project which intends to solve all bootup problems once and for all. One of the most interesting features, is that you don't have to install a new partition or kernel, you can change all parameters at boot time via the GRUB Console, since it knows about the filesystems.
+
+/etc - host-specific system confugauration
+22	/etc/X11/					This directory tree contains all the configuration files for the X Window System. Users should note that many of the files located in this directory are actually symbolic links to the /usr/X11R6 directory tree. Thus, the presence of these files in these locations can not be certain.
+23	/etc/X11/xkb/					The various symbols, types, geometries of keymaps that the X server supports can be found in this directory tree.
+24 	/etc/X11/xinit/					xinit configuration files. 'xinit' is a configuration method of starting up an X session that is designed to used as part of a script. Normally, this is used at larger sites as part of a tailored login process.
+
+
+/var - variable data
+25	/var/backups					Directory containing backups of various key system files such as /etc/shadow, /etc/group, /etc/inetd.conf and dpkg.status. They are normally renamed to something like dpkg.status.0, group.bak, gshadow.bak, inetd.conf.bak, passwd.bak, shadow.bak
+26	/var/cache					Is intended for cached data from applications. Such data is locally generated as a result of time-consuming I/O or calculation. This data can generally be regenerated or be restored. Unlike /var/spool, files here can be deleted without data loss. This data remains valid between invocations of the application and rebooting of the system. The existence of a separate directory for cached data allows system administrators to set different disk and backup policies from other directories in /var.
+27	/var/cache/man					A cache for man pages that are formatted on demand. The source for manual pages is usually stored in /usr/share/man/; some manual pages might come with a pre-formatted version, which is stored in /usr/share/man/cat* (this is fairly rare now). Other manual pages need to be formatted when they are first viewed; the formatted version is then stored in /var/man so that the next person to view the same page won't have to wait for it to be formatted (/var/catman is often cleaned in the same way temporary directories are cleaned).
+28	/var/crash					This directory will eventually hold system crash dumps. Currently, system crash dumps are not supported under Linux. However, development is already complete and is awaiting unification into the Linux kernel.
+29	/var/lib					Holds dynamic data libraries/files like the rpm/dpkg database and game scores. Furthermore, this hierarchy holds state information pertaining to an application or the system. State information is data that programs modify while they run, and that pertains to one specific host. Users shouldn't ever need to modify files in /var/lib to configure a package's operation. State information is generally used to preserve the condition of an application (or a group of inter-related applications) between invocations and between different instances of the same application. An application (or a group of inter-related applications) use a subdirectory of /var/lib for their data. There is one subdirectory, /var/lib/misc, which is intended for state files that don't need a subdirectory; the other subdirectories should only be present if the application in question is included in the distribution. /var/lib/'name' is the location that must be used for all distribution packaging support. Different distributions may use different names, of course.
+30	/var/local					Variable data for local programs (i.e., programs that have been installed by the system administrator) that are installed in /usr/local (as opposed to a remotely mounted '/var' partition). Note that even locally installed programs should use the other /var directories if they are appropriate, e.g., /var/lock.
+31	/var/lock					Many programs follow a convention to create a lock file in /var/lock to indicate that they are using a particular device or file. This directory holds those lock files (for some devices) and hopefully other programs will notice the lock file and won't attempt to use the device or file.
+
+Lock files should be stored within the /var/lock directory structure. Lock files for devices and other resources shared by multiple applications, such as the serial device lock files that were originally found in either /usr/spool/locks or /usr/spool/uucp, must now be stored in /var/lock. The naming convention which must be used is LCK.. followed by the base name of the device file. For example, to lock /dev/ttyS0 the file LCK..ttyS0 would be created. The format used for the contents of such lock files must be the HDB UUCP lock file format. The HDB format is to store the process identifier (PID) as a ten byte ASCII decimal number, with a trailing newline. For example, if process 1230 holds a lock file, it would contain the eleven characters: space, space, space, space, space, space, one, two, three, zero, and newline.
+32	/var/log					Log files from the system and various programs/services, especially login (/var/log/wtmp, which logs all logins and logouts into the system) and syslog (/var/log/messages, where all kernel and system program message are usually stored). Files in /var/log can often grow indefinitely, and may require cleaning at regular intervals. Something that is now normally managed via log rotation utilities such as 'logrotate'. This utility also allows for the automatic rotation compression, removal and mailing of log files. Logrotate can be set to handle a log file daily, weekly, monthly or when the log file gets to a certain size. Normally, logrotate runs as a daily cron job. This is a good place to start troubleshooting general technical problems.
+33	/var/log/auth.log				Record of all logins and logouts by normal users and system processes.
+34	/var/log/btmp					Log of all attempted bad logins to the system. Accessed via the lastb command.
+35	/var/log/dmesg					Kernel ring buffer. The content of this file is referred to by the dmesg command.
+36	/var/log/wtmp					Log of all users who have logged into and out of the system. The last command can be used to access a human readable form of this file. It also lists every connection and run-level change.
+37	/var/log/syslog					The 'system' log file. The contents of this file is managed via the syslogd daemon which more often than not takes care of all log manipulation on most systems.
+38	/var/mail					Contains user mailbox files. The mail files take the form /var/mail/'username' (Note that /var/mail may be a symbolic link to another directory). User mailbox files in this location are stored in the standard UNIX mailbox format. The reason for the location of this directory was to bring the FHS inline with nearly every UNIX implementation (it was previously located in /var/spool/mail). This change is important for inter-operability since a single /var/mail is often shared between multiple hosts and multiple UNIX implementations (despite NFS locking issues).
+39	/var/opt					Variable data of the program packages in /opt must be installed in /var/opt/'package-name', where 'package-name' is the name of the subtree in /opt where the static data from an add-on software package is stored, except where superceded by another file in /etc. No structure is imposed on the internal arrangement of /var/opt/'package-name'.
+40	/var/run					Contains the process identification files (PIDs) of system services and other information about the system that is valid until the system is next booted. For example, /var/run/utmp contains information about users currently logged in.
+41	/var/spool					Holds spool files, for instance for mail, news, and printing (lpd) and other queued work. Spool files store data to be processed after the job currently occupying a device is finished or the appropriate cron job is started. Each different spool has its own subdirectory below /var/spool, e.g., the cron tables are stored in /var/spool/cron/crontabs.
+42	/var/tmp					Temporary files that are large or that need to exist for a longer time than what is allowed for /tmp. (Although the system administrator might not allow very old files in /var/tmp either.)
+-------------------
+
+  /var/cache	Application cache data
+  /var/lib	Variable state information
+  /var/local	Variable data for /usr/local
+  /var/lock	Lock files
+  /var/log	Log files and directories
+  /var/opt	Variable data for /opt
+  /var/run	Data relevant to running processes
+  /var/spool	Application spool data
+  /var/tmp	Temporary files preserved between system reboots
+
+---------------------
+
+
+/usr - 
+43	/usr/bin					This directory contains the vast majority of binaries on your system. Executables in this directory vary widely. For instance vi, gcc, gnome-session and mozilla and are all found here.
+44	/usr/games					Once upon a time, this directory contained network games files. Rarely used now.
+45	/usr/include					The directory for 'header files', needed for compiling user space source code.
+46	/usr/lib					This directory contains program libraries. Libraries are collections of frequently used program routines.
+47	/usr/local					The original idea behind '/usr/local' was to have a separate ('local') '/usr' directory on every machine besides '/usr', which might be just mounted read-only from somewhere else. It copies the structure of '/usr'. These days, '/usr/local' is widely regarded as a good place in which to keep self-compiled or third-party programs. The /usr/local hierarchy is for use by the system administrator when installing software locally. It needs to be safe from being overwritten when the system software is updated. It may be used for programs and data that are shareable amongst a group of hosts, but not found in /usr. Locally installed software must be placed within /usr/local rather than /usr unless it is being installed to replace or upgrade software in /usr
+48	/usr/sbin					This directory contains programs for administering a system, meant to be run by 'root'. Like '/sbin', it's not part of a user's $PATH. Examples of included binaries here are chroot, useradd, in.tftpd and pppconfig.
+49	/usr/share					This directory contains 'shareable', architecture-independent files (docs, icons, fonts etc). Note, however, that '/usr/share' is generally not intended to be shared by different operating systems or by different releases of the same operating system. Any program or package which contains or requires data that doesn't need to be modified should store that data in '/usr/share' (or '/usr/local/share', if installed locally). It is recommended that a subdirectory be used in /usr/share for this purpose."
+50	/usr/src					The 'linux' sub-directory holds the Linux kernel sources, header-files and documentation.
+
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+
+
+	
+
+		
+
+	
+
+
+
+
+
+
+
+	
+
+
+	
+
+	
+
+		
+		
+
